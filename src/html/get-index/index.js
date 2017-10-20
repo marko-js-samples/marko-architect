@@ -5,7 +5,7 @@ const arc = require('@architect/functions')
 const template = require('./page')
 
 function route (req, res) {
-  template.render({ name: 'Austin' })
+  template.render({ count: 5 })
     .then(out => res({ html: out.getOutput() }))
     .catch(err => res({ status: 500 }))
 }

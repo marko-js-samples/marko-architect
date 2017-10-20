@@ -37,7 +37,9 @@ function render(input, out, __component, component, state) {
 
   out.w("<h1>Marko + .architect</h1>");
 
-  fancy_button_tag({}, out, __component, "7");
+  fancy_button_tag({
+      count: input.count
+    }, out, __component, "7");
 
   lasso_body_tag({}, out, __component, "8");
 
