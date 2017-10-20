@@ -1,0 +1,10 @@
+{
+  "name": "arcmarko-get-index",
+  "dependencies": {
+    "@architect/functions": "^1.6.2",
+    "lasso": "^2.11.20"
+  },
+  "devDependencies": {
+    "marko": "^4.5.3-2"
+  }
+}

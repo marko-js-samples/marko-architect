@@ -1,0 +1,25 @@
+{
+  "name": "arc-marko",
+  "version": "1.0.0",
+  "description": "Example using .architect with Marko",
+  "main": "index.js",
+  "scripts": {
+    "create": "AWS_PROFILE=default AWS_REGION=us-east-1 arc-create",
+    "deploy": "npm run compile-templates && npm run build && AWS_PROFILE=default AWS_REGION=us-east-1 arc-deploy",
+    "deploy-prod": "NODE_ENV=production npm run deploy",
+    "start": "npm run compile-templates && AWS_PROFILE=default AWS_REGION=us-east-1 NODE_ENV=testing arc-sandbox",
+    "build": "rm -rf ./build ./src/html/get-index/static ./src/html/get-index/cache && PREBUILD=1 lasso marko-hydrate:./src/html/get-index/page.marko --config ./src/html/get-index/lasso-config --name get-index",
+    "compile-templates": "marko compile --server --ignore ./src/**/node_modules/** --files ./src/**/*.marko"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@architect/workflows": "^1.1.17"
+  },
+  "devDependencies": {
+    "lasso-cli": "^2.0.11",
+    "lasso-marko": "^2.3.2-0",
+    "lasso-s3-writer": "0.0.2",
+    "marko": "^4.5.3-2",
+    "marko-cli": "^2.1.0"
+  }
+}
