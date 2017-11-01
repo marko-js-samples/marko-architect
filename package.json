@@ -4,7 +4,7 @@
   "description": "Example using .architect with Marko",
   "main": "index.js",
   "scripts": {
-    "create": "AWS_PROFILE=default AWS_REGION=us-east-1 arc-create",
+    "create": "npm run build && cd src/html/get-index && npm install && cd ../../../ && AWS_PROFILE=default AWS_REGION=us-east-1 arc-create",
     "build-deploy": "npm run compile-templates && npm run build && AWS_PROFILE=default AWS_REGION=us-east-1 arc-deploy",
     "deploy": "NODE_ENV=production npm run build-deploy",
     "start": "npm run compile-templates && AWS_PROFILE=default AWS_REGION=us-east-1 NODE_ENV=testing arc-sandbox",
@@ -17,9 +17,9 @@
   },
   "devDependencies": {
     "lasso-cli": "^2.0.11",
-    "lasso-marko": "^2.3.2-0",
-    "lasso-s3-writer": "0.0.2",
-    "marko": "^4.5.3-2",
+    "lasso-marko": "2.3.2-0",
+    "lasso-s3-writer": "0.1.0",
+    "marko": "4.5.3-2",
     "marko-cli": "^2.1.0"
   }
 }
