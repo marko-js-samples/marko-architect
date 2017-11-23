@@ -4,12 +4,9 @@
   "description": "Example using .architect with Marko",
   "main": "index.js",
   "scripts": {
-    "create": "npm run build && cd src/html/get-index && npm install && cd ../../../ && AWS_PROFILE=default AWS_REGION=us-east-1 arc-create",
-    "build-deploy": "npm run compile-templates && npm run build && AWS_PROFILE=default AWS_REGION=us-east-1 arc-deploy",
-    "deploy": "NODE_ENV=production npm run build-deploy",
-    "start": "npm run compile-templates && AWS_PROFILE=default AWS_REGION=us-east-1 NODE_ENV=testing arc-sandbox",
-    "build": "rm -rf ./build ./src/html/get-index/static ./src/html/get-index/cache && npm run compile-templates && PREBUILD=1 lasso marko-hydrate:./src/html/get-index/page.marko --config ./src/html/get-index/lasso-config --name get-index",
-    "compile-templates": "npm run arc-install && NODE_ENV=production marko compile --server --ignore ./src/**/node_modules/** --files ./src/**/*.marko",
+    "create": "npm install && cd src/html/get-index && npm install && cd ../../../ && AWS_PROFILE=default AWS_REGION=us-east-1 arc-create",
+    "deploy": "AWS_PROFILE=default AWS_REGION=us-east-1 arc-prototype-deploy",
+    "start": "AWS_PROFILE=default AWS_REGION=us-east-1 NODE_ENV=testing PREBUILD=1 arc-sandbox",
     "arc-install": "arc-modules-install",
     "arc-link": "arc-modules-link",
     "arc-uninstall": "arc-modules-uninstall",
@@ -17,13 +14,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@architect/workflows": "^1.1.17"
+    "@architect/workflows": "^1.1.25",
+    "@lasso/marko-taglib": "github:lasso-js/lasso-marko-taglib#9747483be0328a9d5b21f5e4b362f40793c6a658",
+    "lasso": "3.0.1-0"
   },
   "devDependencies": {
-    "lasso-cli": "^2.0.11",
-    "lasso-marko": "2.3.2-0",
-    "lasso-s3-writer": "0.1.0",
-    "marko": "4.5.3-2",
-    "marko-cli": "^2.1.0"
+    "arc-plugin-marko": "^0.2.0",
+    "arc-prototype-deploy": "^1.3.3",
+    "marko": "4.5.3-2"
   }
 }

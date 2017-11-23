@@ -2,15 +2,6 @@
 
 Sample app of using Marko with [Architect](https://arc.codes)
 
-## Install
-
-Install the required dependencies in order to deploy the project or run the
-project locally.
-
-```bash
-npm install
-```
-
 ## Create
 
 This command creates all required AWS resources and deploys your project
