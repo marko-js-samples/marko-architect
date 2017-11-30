@@ -3,7 +3,7 @@
   "dependencies": {
     "@architect/functions": "^1.6.2",
     "@lasso/marko-taglib": "github:lasso-js/lasso-marko-taglib#e5beed39e6b487f825cf2775f779fa186d09e3ca",
-    "arc-plugin-marko": "^0.3.0",
+    "arc-plugin-marko": "^0.3.1",
     "lasso": "^3.0.1-1",
     "marko": "4.5.3-2"
   }
