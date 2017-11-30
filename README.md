@@ -2,12 +2,37 @@
 
 Sample app of using Marko with [Architect](https://arc.codes)
 
-## Create
+## Getting Started
 
-This command creates all required AWS resources and deploys your project
+Before running the initial creation process, ensure that you update the `.arc`
+configuration file to write to the `bucket` that you want. The bucket will
+automatically be created, but it must have a unique name.
+
+```
+...
+@plugins
+arc-plugin-marko
+  pages ./src/html/get-index/page.marko
+  bucket MY_UNIQUE_BUCKET_NAME_HERE
+```
+
+Additionally, you should update the `package.json` scripts to use the `AWS_PROFILE`
+and `AWS_REGION` that you wish to deploy with. After updating these configuration
+options, you can now create the AWS resources.
+
+This command creates all required AWS resources and deploys your project:
 
 ```bash
 npm run create
+```
+
+## Deploy
+
+Additional deploys of your project after the initial creation step can be done
+using the following command:
+
+```bash
+npm run deploy
 ```
 
 ## Start Local
@@ -16,15 +41,6 @@ Run the project locally. This command should only be run after running `npm run 
 
 ```bash
 npm start
-```
-
-## Deploy
-
-Ensure that you first update `AWS_PROFILE` and `AWS_REGION` environment variables
-in the `package.json` scripts.
-
-```bash
-npm run deploy
 ```
 
 ## How?
